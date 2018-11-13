@@ -8,5 +8,9 @@ namespace Sweepstakes
 {
     class Contestant
     {
+        private string firstName;
+        private string lastName;
+        private string emailAddress;
+        private int registrationNumber;
     }
 }
