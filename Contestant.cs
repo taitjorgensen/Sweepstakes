@@ -11,7 +11,7 @@ namespace Sweepstakes
         private string firstName;
         private string lastName;
         private string emailAddress;
-        private int registrationNumber;
+        public int registrationNumber = 1000;
         UI userInterface = new UI();
 
         public string FirstName
@@ -59,9 +59,8 @@ namespace Sweepstakes
         }
 
         private int SetRegistrationNumber()
-        {
-            Random randomNumber = new Random();
-            registrationNumber = randomNumber.Next(1000, 2000);
+        { 
+            registrationNumber++;
             return registrationNumber;
         }
     }

@@ -9,13 +9,15 @@ namespace Sweepstakes
 {
     class UI
     {
-
+        
+        string userReply;
 
         public void EnterContestantInfo(Contestant contestant)
         {
             UserInputFirstName(contestant);
             UserInputLastName(contestant);
             UserInputEmailAddress(contestant);
+            SelectSweepstakesToEnter();
         }
         public void UserInputFirstName(Contestant contestant)
         {
@@ -33,6 +35,33 @@ namespace Sweepstakes
             contestant.EmailAddress = Console.ReadLine();
         }
 
+        private void SelectSweepstakesToEnter()
+        {
+            Console.WriteLine("All contestants will be notified when the winner is selected.");
+            Console.WriteLine("Winner will be notified by email.");
+            Console.WriteLine("Would you like to enter our sweepstakes? Yes or No?");
+            userReply = Console.ReadLine();
+            VerifyUserInput(userReply);
 
+        }
+
+        private void VerifyUserInput(string userInput)
+        {
+            if (userInput.ToLower() == "yes")
+            {
+                userInput = userReply;
+                return;
+            }
+            else if  (userInput.ToLower() == "no")
+            {
+                userInput = userReply;
+                return;
+            }
+            else
+            {
+                Console.WriteLine("Please enter a valid response.");
+                SelectSweepstakesToEnter();
+            }
+        }
     }
 }

@@ -6,28 +6,35 @@ using System.Threading.Tasks;
 
 namespace Sweepstakes
 {
-    class Sweepstakes : ISweepstakesManager
+    class Sweepstakes
     {
         Sweepstakes sweepstakes;
         private string winner;
         Contestant contestant;
         UI userInterface;
-        //methods
-        public void InsertSweepstakes()
-        {
+        Dictionary<int, Contestant> registeredContestants;
 
-        }
-        public Sweepstakes GetSweepstakes()
+        //methods
+        public void CreateSweepstakes()
         {
-            return sweepstakes;
+            registeredContestants = new Dictionary<int, Contestant>();
+            AddContestant();
+        }
+        private void AddContestant()
+        {
+            RegisterContestant();
+            registeredContestants.Add(contestant.registrationNumber, contestant);
         }
         private void RegisterContestant()
         {
             contestant = new Contestant();
             userInterface.EnterContestantInfo(contestant);
         }
-        private string PickWinner()
+        private Contestant PickWinner()
         {
+            Random random = new Random((registeredContestants.Count) + 1000);
+
+            Contestant winner = contestant;
             return winner;
         }
         private void PrintContestantInfo()

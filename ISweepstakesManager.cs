@@ -8,7 +8,7 @@ namespace Sweepstakes
 {
     interface ISweepstakesManager
     {
-        void InsertSweepstakes();
+        void InsertSweepstakes(Sweepstakes sweepstakes);
         Sweepstakes GetSweepstakes();
     }
 }
