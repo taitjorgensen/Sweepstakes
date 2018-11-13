@@ -11,6 +11,7 @@ namespace Sweepstakes
         Sweepstakes sweepstakes;
         private string winner;
         Contestant contestant;
+        UI userInterface;
         //methods
         public void InsertSweepstakes()
         {
@@ -23,6 +24,7 @@ namespace Sweepstakes
         private void RegisterContestant()
         {
             contestant = new Contestant();
+            userInterface.EnterContestantInfo(contestant);
         }
         private string PickWinner()
         {
