@@ -61,7 +61,7 @@ namespace Sweepstakes
             else
             {
                 Console.WriteLine("Please enter a valid response.");
-                SelectSweepstakesToEnter();
+                ConfirmToEnterSweepstakes();
             }
         }
     }

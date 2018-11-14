@@ -7,17 +7,18 @@ using System.Threading.Tasks;
 namespace Sweepstakes
 {
     class Sweepstakes
-    {
-        Sweepstakes sweepstakes;
-        private Contestant winner;
+    {               
         Contestant contestant;
         UI userInterface;
+        private Contestant winner;
         Dictionary<int, Contestant> registeredContestants;
 
         //methods
-        public void CreateSweepstakes()
+        public void CreateSweepstakes(MarketingFirm marketingFirm, Sweepstakes sweepstakes)
         {
+            marketingFirm.InsertSweepstakes(sweepstakes);
             registeredContestants = new Dictionary<int, Contestant>();
+            userInterface = new UI();
             AddContestant();
         }
         private void AddContestant()
