@@ -9,7 +9,7 @@ namespace Sweepstakes
     class Sweepstakes
     {
         Sweepstakes sweepstakes;
-        private string winner;
+        private Contestant winner;
         Contestant contestant;
         UI userInterface;
         Dictionary<int, Contestant> registeredContestants;
@@ -30,16 +30,29 @@ namespace Sweepstakes
             contestant = new Contestant();
             userInterface.EnterContestantInfo(contestant);
         }
-        private Contestant PickWinner()
+        private IEnumerable<Contestant> PickWinner()
         {
-            Random random = new Random((registeredContestants.Count) + 1000);
+            Random random = new Random();
+            List<Contestant> contestants = Enumerable.ToList(registeredContestants.Values);
+            int numberOfEntrants = contestants.Count;
+            while(true)
+            {
+                winner = contestants[random.Next(numberOfEntrants)];
+                DisplayWinner();
+                yield return winner;
+            }
 
-            Contestant winner = contestant;
-            return winner;
         }
-        private void PrintContestantInfo()
+        private void DisplayWinner()
         {
-
+            Console.WriteLine(winner.FirstName + " " + winner.LastName + " has won the sweepstakes!");
+            Console.ReadLine();
+        }
+        public void PrintContestantInfo()
+        {
+            Console.WriteLine("Contestant info: ");
+            Console.WriteLine(registeredContestants.Values);
+            Console.ReadLine();
         }
     }
 }

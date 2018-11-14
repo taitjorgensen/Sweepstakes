@@ -17,7 +17,7 @@ namespace Sweepstakes
             UserInputFirstName(contestant);
             UserInputLastName(contestant);
             UserInputEmailAddress(contestant);
-            SelectSweepstakesToEnter();
+            ConfirmToEnterSweepstakes();
         }
         public void UserInputFirstName(Contestant contestant)
         {
@@ -35,14 +35,15 @@ namespace Sweepstakes
             contestant.EmailAddress = Console.ReadLine();
         }
 
-        private void SelectSweepstakesToEnter()
+        private void ConfirmToEnterSweepstakes()
         {
             Console.WriteLine("All contestants will be notified when the winner is selected.");
             Console.WriteLine("Winner will be notified by email.");
             Console.WriteLine("Would you like to enter our sweepstakes? Yes or No?");
             userReply = Console.ReadLine();
             VerifyUserInput(userReply);
-
+            Console.WriteLine("You have successfully registered for this sweepstakes! Good Luck!");
+            Console.ReadLine();
         }
 
         private void VerifyUserInput(string userInput)

@@ -8,6 +8,7 @@ namespace Sweepstakes
 {
     class MarketingFirm : ISweepstakesManager
     {
+        Sweepstakes sweepstakes;
         SweepstakesStackManager sweepstakesStackManager;
         SweepstakesQueueManager sweepstakesQueueManager;
         public void InsertSweepstakes()
@@ -40,6 +41,11 @@ namespace Sweepstakes
         public Sweepstakes GetSweepstakes()
         {
 
+        }
+
+        private void ViewContestants()
+        {
+            sweepstakes.PrintContestantInfo();
         }
     }
 }
